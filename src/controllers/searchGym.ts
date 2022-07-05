@@ -2,7 +2,6 @@ import axios from 'axios';
 import { prompt } from 'inquirer';
 import { baseUrl } from '..';
 import { cityandTypeQ } from '../q/cityandTypeQ';
-import { Q2 } from '../q/Q2';
 
 export async function searchGym() {
 	const query = await prompt(
@@ -13,7 +12,7 @@ export async function searchGym() {
 		},
 	);
 
-	const { data: gyms } = await axios.get(baseUrl + '/gyms', {
+	const { data: gyms } = await axios.get(baseUrl + '/gym', {
 		params: query,
 	});
 	const formattedgym = gyms.map((c: any) => ({ name: c.name}));
@@ -26,7 +25,7 @@ export async function searchGym() {
 		filter: (val) => +val,
 	});
 	const gym = gyms[index];
-	 const dgym = await axios.get(baseUrl + `/gyms/details/${gym.id}`);
+	 const dgym = await axios.get(baseUrl + `/gym/details/${gym.id}`);
      console.log(dgym.data);
 
     const { back } = await prompt({

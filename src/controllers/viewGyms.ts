@@ -23,7 +23,7 @@ export async function viewGyms() {
             choices: ['female','male'],
         },
     ]);
-	const { data: gyms } = await axios.get(baseUrl + `/gyms/${city}/${gymType}`);
+	const { data: gyms } = await axios.get(baseUrl + `/gym/${city}/${gymType}`);
 	const formattedGyms = gyms.map((c: any) => ({name:c.name}));
 	console.table(formattedGyms);
     const { index } = await prompt({
@@ -33,7 +33,7 @@ export async function viewGyms() {
 		filter: (val) => +val,
 	});
 	const gym = gyms[index];
-	 const dgym = await axios.get(baseUrl + `/gyms/details/${gym.id}`);
+	 const dgym = await axios.get(baseUrl + `/gym/details/${gym.id}`);
      console.log(dgym.data);
      const { i } = await prompt({
 		type: 'number',

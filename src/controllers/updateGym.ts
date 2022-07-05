@@ -105,7 +105,7 @@ export async function updateGym(gyms:any) {
 		},
 	]);
 
-	await axios.patch(baseUrl + `/gyms/${gym.id}`, newGym);
+	await axios.patch(baseUrl + `/gym/${gym.id}`, newGym);
 
 	console.log(`gym for ${newGym.name}, has been updated ✅`);
 }

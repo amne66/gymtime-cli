@@ -11,6 +11,6 @@ export async function deleteGym(gyms:any) {
 		filter: (val) => +val,
 	});
 	const gym = gyms[index];
-	await axios.delete(baseUrl + `/gyms/${gym.id}`);
+	await axios.delete(baseUrl + `/gym/${gym.id}`);
 	console.log(`Contact for ${gym.name} has been deleted ✅`);
 }

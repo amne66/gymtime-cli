@@ -1,6 +1,6 @@
 import { Q1 } from "./q/Q1";
 
-export const baseUrl = 'http://127.0.0.1:3000';
+export const baseUrl = 'http://127.0.0.1:3001';
 export const globalData: any = {
 	token: '',
 };
@@ -9,7 +9,6 @@ async function start() {
 	console.log();
 	console.log();
 	console.log('Welcome to Gym Time  🏋️');
-	console.log();
 	console.log();
 	console.log();
 	console.log();

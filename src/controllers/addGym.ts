@@ -57,7 +57,7 @@ export async function addGym() {
 		},
 	])
 
-	await axios.post(baseUrl + '/gyms',
+	await axios.post(baseUrl + '/gym',
 		{
            ... gym,
 		},

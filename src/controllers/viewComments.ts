@@ -5,7 +5,7 @@ import { cityandTypeQ } from '../q/cityandTypeQ';
 
 export async function viewComments(gym:any) {
 
-	const{data: comments} = await axios.get(baseUrl + `/gyms/reviews/${gym}`);
+	const{data: comments} = await axios.get(baseUrl + `/gym/reviews/${gym}`);
 	const formattedGyms = comments.map((c: any) => ({comment:c.comment}));
 	console.table(formattedGyms);
 	console.log(comments.data);
