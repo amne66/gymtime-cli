@@ -47,5 +47,4 @@ if (action === 'view') {
     await searchGym();
  } 
 }catch(error){
-    console.log(error);
-    }}
+    console.log(error); }}

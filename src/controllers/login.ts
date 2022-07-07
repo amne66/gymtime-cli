@@ -14,7 +14,7 @@ export async function login() {
 			filter: (val) => val.toLowerCase(),
 		},
 		{
-			type: 'input',
+			type: 'password',
 			name: 'password',
 			message: 'Enter your password 🔑 ',
 		},

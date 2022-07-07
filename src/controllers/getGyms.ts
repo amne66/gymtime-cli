@@ -1,14 +1,16 @@
 import axios from 'axios';
 import { prompt } from 'inquirer';
 import { baseUrl, globalData } from '..';
+import { cityandTypeQ } from '../q/cityandTypeQ';
 import { Q2 } from '../q/Q2';
 import { addComment } from './addCommment';
+import { login } from './login';
 import { viewComments } from './viewComments';
 
 export async function getGyms(city: any, gymType: any) {
     try{
 	const { data: gyms } = await axios.get(baseUrl + `/gym/${city}/${gymType}`);
-	const formattedGyms = gyms.map((c: any) => ({name:c.name}));
+	const formattedGyms = gyms.map((c: any) => ({name:c.name,rating:c.rating}));
 	console.table(formattedGyms);
 
     const { index } = await prompt({
@@ -33,7 +35,8 @@ export async function getGyms(city: any, gymType: any) {
     }else if(i===2 && globalData.token !== ''){
         await addComment(gym.id);
     }else if(i===2 && globalData.token === ''){
-        console.log('you should login to add a comment');     
+        console.log('you should login to add a comment');  
+      login();
     }
 }catch(error){
 console.log(error);
